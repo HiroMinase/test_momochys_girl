@@ -87,13 +87,35 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _selectPart(Part part) {
     setState(() {
-      // カテゴリーごとに1つしか選択させないので未選択状態に
+      // カテゴリーごとに1つしか選択させないのですべて未選択状態に
       // パーツ数が増えた時に forループだとつらいので要改善
       for (int i = 0; i < _selectableParts!.length; i++) {
         _selectableParts![i].isSelected = false;
       }
       part.isSelected = true;
     });
+  }
+
+  CategorytoJapanese(String category) {
+    switch(category) {
+      case 'rinkaku':
+        return "輪郭";
+      case 'me':
+        return "目";
+      case 'mayuge':
+        return "まゆげ";
+      case 'kuchi':
+        return "くち";
+      case 'kami':
+        return "髪型";
+      case 'maegami':
+        return "前髪";
+      case 'huku':
+        return "服装";
+      default:
+        print('$category は定義されていないカテゴリーです');
+        break;
+    };
   }
 
   @override
@@ -150,7 +172,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       height: 100,
                       child: Center(
                         child: Text(
-                          _categoryList![i],
+                          CategorytoJapanese(_categoryList![i]),
                           style: const TextStyle(
                             fontSize: 20
                           ),
