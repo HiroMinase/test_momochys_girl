@@ -148,7 +148,14 @@ class _MyHomePageState extends State<MyHomePage> {
                       margin: const EdgeInsets.symmetric(vertical: 20),
                       width: 100,
                       height: 100,
-                      child: Text(_categoryList![i]),
+                      child: Center(
+                        child: Text(
+                          _categoryList![i],
+                          style: const TextStyle(
+                            fontSize: 20
+                          ),
+                        ),
+                      )
                     )
                   )
                 ],
